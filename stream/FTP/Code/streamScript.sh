@@ -8,14 +8,24 @@ echo "Which version?"
 echo "[ 1: Local, 2: Volumes, 3: BindMounts ]"
 read version
 
+cd Versions
+
 if [ $version -eq 1 ]
 then
-	cd ~/Downloads/stream/FTP/Code/Versions
+	resultPath=$PWD/localResults
+	mkdir localResults
 else
-	cd /app/stream/FTP/Code/Versions
 	export PATH=/app/mpiccInstall/bin:$PATH
-
-mkdir results
+	
+	if [ $version -eq 2 ]
+	then
+		resultPath=$PWD/volumeResults
+		mkdir volumeResults
+	else
+		resultPath=$PWD/bindMountResults
+		mkdir bindMountResults
+	fi
+fi
 
 arr=( 1 2 5 10 25 50 100 250 500 )
 
@@ -29,7 +39,9 @@ do
 	
 	for j in "${rank[@]}"
 	do
-		mpirun -n "$j" ./stream."$i"M >> $PWD/results/result_"$i"_"$j".txt
+		mpirun -n "$j" ./stream."$i"M >> $PWD/"$resultPath"/result_"$i"_"$j".txt
+
+		rm ./stream."$i"M
 	done
 	
 done
