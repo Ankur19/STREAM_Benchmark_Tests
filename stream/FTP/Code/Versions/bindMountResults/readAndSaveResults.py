@@ -1,0 +1,37 @@
+import os
+import pandas as pd
+
+array=[1,2,5,10,25,50,100,250,500]
+rank=[1,2,3,4]
+
+def createColumns():
+    result = []
+    for i in array:
+        for j in rank:
+            result.append(str(i)+"_"+str(j))
+    return result
+
+
+def readResults():
+    files = os.listdir(".")
+    columns = createColumns()
+    df = pd.DataFrame(columns=columns)
+    for file in sorted(files):
+        if "result_" in file:
+            identifiers=file.split(".")[0].split("_")
+            data = []
+            with open(file, 'r') as f:
+                for line in f:
+                    part = line[:10]
+                    if "Copy:" in part or "Scale:" in part or "Add:" in part or "Triad:" in part:
+                        parts = line.split(" ")
+                        for i in range(1, len(parts)):
+                            if len(parts[i])>0:
+                                data.append(float(parts[i]))
+                                break
+            df[identifiers[1]+"_"+identifiers[2]] = data
+    df.to_csv("results.csv")
+
+
+if __name__=="__main__":
+    readResults()
