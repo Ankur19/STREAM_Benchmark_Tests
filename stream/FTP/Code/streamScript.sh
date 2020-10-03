@@ -40,8 +40,7 @@ do
 	for j in "${rank[@]}"
 	do
 		mpirun -n "$j" ./stream."$i"M >> "$resultPath"/result_"$i"_"$j".txt
-
-		rm ./stream."$i"M
 	done
 	
+	rm ./stream."$i"M
 done
