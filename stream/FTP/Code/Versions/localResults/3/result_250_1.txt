@@ -1,0 +1,36 @@
+-------------------------------------------------------------
+STREAM version $Revision: 1.8 $
+-------------------------------------------------------------
+This system uses 8 bytes per array element.
+-------------------------------------------------------------
+Total Aggregate Array size = 250000000 (elements)
+Total Aggregate Memory per array = 1907.3 MiB (= 1.9 GiB).
+Total Aggregate memory required = 5722.0 MiB (= 5.6 GiB).
+Data is distributed across 1 MPI ranks
+   Array size per MPI rank = 250000000 (elements)
+   Memory per array per MPI rank = 1907.3 MiB (= 1.9 GiB).
+   Total memory per MPI rank = 5722.0 MiB (= 5.6 GiB).
+-------------------------------------------------------------
+Each kernel will be executed 10 times.
+ The *best* time for each kernel (excluding the first iteration)
+ will be used to compute the reported bandwidth.
+The SCALAR value used for this run is 0.420000
+-------------------------------------------------------------
+Your timer granularity/precision appears to be 1 microseconds.
+Each test below will take on the order of 194777 microseconds.
+   (= 194777 timer ticks)
+Increase the size of the arrays if this shows that
+you are not getting at least 20 timer ticks per test.
+-------------------------------------------------------------
+WARNING -- The above is only a rough guideline.
+For best results, please be sure you know the
+precision of your system timer.
+-------------------------------------------------------------
+Function    Best Rate MB/s  Avg time     Min time     Max time
+Copy:          18128.6     0.235525     0.220646     0.249976
+Scale:         18068.1     0.241183     0.221385     0.273103
+Add:           21234.1     0.311144     0.282564     0.334592
+Triad:         20022.1     0.321962     0.299669     0.368625
+-------------------------------------------------------------
+Solution Validates: avg error less than 1.000000e-13 on all three arrays
+-------------------------------------------------------------

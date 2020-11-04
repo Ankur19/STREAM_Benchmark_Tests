@@ -31,16 +31,23 @@ arr=( 1 2 5 10 25 50 100 250 500 )
 
 rank=( 1 2 3 4 )
 
-for i in "${arr[@]}"
+tries=( 1 2 3 4 5 )
+
+for k in "${tries[@]}"
 do
-	x=$((1000000*i))
-	
-	mpicc -O -DSTREAM_ARRAY_SIZE="$x" stream_mpi.c -o stream."$i"M
-	
-	for j in "${rank[@]}"
+	for i in "${arr[@]}"
 	do
-		mpirun -n "$j" ./stream."$i"M >> "$resultPath"/result_"$i"_"$j".txt
+		x=$((1000000*i))
+		
+		mpicc -O -DSTREAM_ARRAY_SIZE="$x" stream_mpi.c -o stream."$i"M
+		
+		mkdir "$resultPath"/"$k"
+		
+		for j in "${rank[@]}"
+		do
+			mpirun -n "$j" ./stream."$i"M >> "$resultPath"/"$k"/result_"$i"_"$j".txt
+		done
+		
+		rm ./stream."$i"M
 	done
-	
-	rm ./stream."$i"M
 done
