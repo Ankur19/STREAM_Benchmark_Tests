@@ -12,6 +12,7 @@ cd Versions
 
 if [ $version -eq 1 ]
 then
+	export PATH=/app/mpiccInstall/bin:$PATH
 	resultPath=$PWD/localResults
 	mkdir localResults
 else
@@ -29,7 +30,7 @@ fi
 
 arr=( 1 2 5 10 25 50 100 250 500 )
 
-rank=( 1 2 3 4 )
+rank=( 1 2 4 8 )
 
 tries=( 1 2 3 4 5 )
 
