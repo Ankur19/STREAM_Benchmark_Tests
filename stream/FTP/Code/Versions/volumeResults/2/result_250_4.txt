@@ -17,8 +17,8 @@ Each kernel will be executed 10 times.
 The SCALAR value used for this run is 0.420000
 -------------------------------------------------------------
 Your timer granularity/precision appears to be 1 microseconds.
-Each test below will take on the order of 158293 microseconds.
-   (= 158293 timer ticks)
+Each test below will take on the order of 142151 microseconds.
+   (= 142151 timer ticks)
 Increase the size of the arrays if this shows that
 you are not getting at least 20 timer ticks per test.
 -------------------------------------------------------------
@@ -27,10 +27,10 @@ For best results, please be sure you know the
 precision of your system timer.
 -------------------------------------------------------------
 Function    Best Rate MB/s  Avg time     Min time     Max time
-Copy:          20081.7     0.204935     0.199187     0.221423
-Scale:         19916.0     0.205213     0.200844     0.215730
-Add:           22965.7     0.267495     0.261259     0.286093
-Triad:         22795.2     0.271938     0.263214     0.304600
+Copy:          18974.2     0.211204     0.210813     0.212652
+Scale:         18998.9     0.210761     0.210539     0.210991
+Add:           21855.5     0.274891     0.274531     0.275331
+Triad:         21766.3     0.276087     0.275655     0.276520
 -------------------------------------------------------------
 Solution Validates: avg error less than 1.000000e-13 on all three arrays
 -------------------------------------------------------------
