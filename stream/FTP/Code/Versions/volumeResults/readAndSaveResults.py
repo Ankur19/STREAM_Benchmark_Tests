@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 array=[1,2,5,10,25,50,100,250,500]
-rank=[1,2,3,4]
+rank=[1,2,4,8]
 folders=["1","2","3","4","5"]
 
 def createColumns():
